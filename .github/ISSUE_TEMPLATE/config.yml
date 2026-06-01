@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Public landing page
+    url: https://auruminternum.github.io/workflow-audit-service/
+    about: View the current service page and offline report builder.

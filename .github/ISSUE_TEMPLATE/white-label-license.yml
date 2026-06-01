@@ -1,0 +1,49 @@
+name: White-Label or Adaptation Inquiry
+description: Ask about adapting the workflow audit kit for your consulting or automation business.
+title: "White-label inquiry: "
+labels: ["white-label"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form if you want to adapt the workflow audit report builder, listing copy, or delivery template for your agency or consulting practice.
+  - type: input
+    id: organization
+    attributes:
+      label: Organization or project
+      placeholder: "Company, agency, solo practice, or project name"
+    validations:
+      required: true
+  - type: dropdown
+    id: use_case
+    attributes:
+      label: Use case
+      options:
+        - Use internally for client discovery
+        - White-label as a paid diagnostic
+        - Adapt for Airtable/Make/Zapier/n8n consulting
+        - Adapt for operations consulting
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: adaptation
+    attributes:
+      label: What should be adapted?
+      placeholder: "Example: Airtable-specific schema section, support-ticket workflow language, Spanish version, branded report template..."
+    validations:
+      required: true
+  - type: input
+    id: budget
+    attributes:
+      label: Budget or target package
+      placeholder: "$349 customization, $1,250 sprint, or custom quote"
+    validations:
+      required: false
+  - type: checkboxes
+    id: boundary
+    attributes:
+      label: Safety boundary
+      options:
+        - label: I will not include private credentials, customer secrets, or regulated personal data in this issue.
+          required: true

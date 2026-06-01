@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Workflow Leak Audit</title>
+  <style>
+    :root {
+      --ink: #15161a;
+      --muted: #5e6572;
+      --line: #d8dde6;
+      --paper: #f7f5ef;
+      --panel: #ffffff;
+      --accent: #0e7c66;
+      --accent-2: #c83e2d;
+      --focus: #244c9a;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.5;
+    }
+    header {
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.82);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(12px);
+    }
+    .nav, main, footer {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+    .nav {
+      min-height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .brand {
+      font-weight: 760;
+      font-size: 18px;
+      letter-spacing: 0;
+    }
+    .nav a, .button {
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 680;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 14px;
+    }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      border: 1px solid var(--ink);
+      background: var(--ink);
+      color: white;
+      padding: 0 18px;
+      border-radius: 6px;
+    }
+    .button.secondary {
+      background: transparent;
+      color: var(--ink);
+      border-color: var(--line);
+    }
+    .hero {
+      min-height: calc(100vh - 64px);
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      align-items: center;
+      gap: 56px;
+      padding: 64px 0 40px;
+    }
+    h1 {
+      font-size: clamp(42px, 6vw, 76px);
+      line-height: 0.98;
+      margin: 0 0 24px;
+      letter-spacing: 0;
+      max-width: 760px;
+    }
+    .lead {
+      color: var(--muted);
+      font-size: 20px;
+      max-width: 650px;
+      margin: 0 0 28px;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 28px 0 20px;
+    }
+    .proof {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .proof span {
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.64);
+      padding: 8px 10px;
+      border-radius: 999px;
+    }
+    .workspace {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 18px;
+      box-shadow: 0 18px 40px rgba(21, 22, 26, 0.08);
+    }
+    .screen {
+      border: 1px solid #cdd4df;
+      border-radius: 6px;
+      overflow: hidden;
+      background: #fdfdfb;
+    }
+    .screen-top {
+      height: 36px;
+      background: #e9edf3;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0 12px;
+    }
+    .dot { width: 10px; height: 10px; border-radius: 50%; background: #b6becb; }
+    .screen-body {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      min-height: 420px;
+    }
+    .sidebar {
+      border-right: 1px solid var(--line);
+      padding: 18px;
+      background: #f4f7f4;
+    }
+    .row {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(21, 22, 26, 0.09);
+      font-size: 13px;
+    }
+    .row strong { color: var(--accent); }
+    .canvas { padding: 18px; }
+    .canvas h2 {
+      font-size: 18px;
+      margin: 0 0 14px;
+      letter-spacing: 0;
+    }
+    .bar {
+      height: 12px;
+      background: #e5e8ee;
+      border-radius: 999px;
+      overflow: hidden;
+      margin: 12px 0 20px;
+    }
+    .bar div { height: 100%; background: var(--accent); width: 68%; }
+    .finding {
+      border: 1px solid var(--line);
+      border-left: 5px solid var(--accent-2);
+      border-radius: 6px;
+      padding: 12px;
+      margin-bottom: 12px;
+      font-size: 14px;
+      background: white;
+    }
+    section {
+      padding: 64px 0;
+      border-top: 1px solid var(--line);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 20px;
+    }
+    h2 {
+      font-size: 34px;
+      line-height: 1.08;
+      letter-spacing: 0;
+      margin: 0 0 18px;
+    }
+    h3 {
+      font-size: 17px;
+      margin: 0 0 8px;
+      letter-spacing: 0;
+    }
+    p { margin: 0 0 12px; }
+    .muted { color: var(--muted); }
+    .price {
+      font-size: 48px;
+      font-weight: 780;
+      letter-spacing: 0;
+      margin: 6px 0;
+    }
+    .split {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 40px;
+      align-items: start;
+    }
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    li {
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(21, 22, 26, 0.1);
+    }
+    form {
+      display: grid;
+      gap: 12px;
+    }
+    label {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--muted);
+    }
+    input, textarea, select {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      min-height: 44px;
+      padding: 10px 12px;
+      font: inherit;
+      background: white;
+      color: var(--ink);
+    }
+    textarea { min-height: 118px; resize: vertical; }
+    input:focus, textarea:focus, select:focus, .button:focus {
+      outline: 3px solid rgba(36, 76, 154, 0.22);
+      border-color: var(--focus);
+    }
+    footer {
+      padding: 34px 0 48px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    @media (max-width: 860px) {
+      .nav { align-items: flex-start; padding: 14px 0; }
+      .nav-links { display: none; }
+      .hero, .split, .grid, .screen-body {
+        grid-template-columns: 1fr;
+      }
+      .hero { min-height: auto; padding-top: 44px; }
+      .sidebar { border-right: 0; border-bottom: 1px solid var(--line); }
+      h1 { font-size: 44px; }
+      .lead { font-size: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <div class="brand">AI Workflow Leak Audit</div>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#deliverables">Deliverables</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#intake">Intake</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="hero">
+      <div>
+        <h1>Find the busywork costing your team hours every week.</h1>
+        <p class="lead">A fixed-price, 48-hour audit for small teams that want practical AI and automation wins without buying another vague strategy deck.</p>
+        <div class="hero-actions">
+          <a class="button" href="https://github.com/auruminternum/workflow-audit-service/issues/new?template=audit-request.yml">Request an audit</a>
+          <a class="button secondary" href="#deliverables">See the deliverables</a>
+        </div>
+        <div class="proof">
+          <span>48-hour turnaround</span>
+          <span>3 prioritized automations</span>
+          <span>Done-for-you report</span>
+        </div>
+      </div>
+      <div class="workspace" aria-label="Audit report preview">
+        <div class="screen">
+          <div class="screen-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+          <div class="screen-body">
+            <aside class="sidebar">
+              <div class="row"><span>Manual handoffs</span><strong>7</strong></div>
+              <div class="row"><span>Weekly hours exposed</span><strong>6.5</strong></div>
+              <div class="row"><span>Fast wins</span><strong>3</strong></div>
+              <div class="row"><span>Risk items</span><strong>2</strong></div>
+            </aside>
+            <div class="canvas">
+              <h2>Opportunity score</h2>
+              <div class="bar"><div></div></div>
+              <div class="finding"><strong>Lead intake:</strong> Convert repeated email triage into one form, one routing rule, and one summary draft.</div>
+              <div class="finding"><strong>Client updates:</strong> Generate weekly status emails from task changes instead of manual rewrite.</div>
+              <div class="finding"><strong>Invoice prep:</strong> Pull approved work logs into invoice line items and review exceptions only.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section id="deliverables">
+      <h2>A compact audit, built to ship.</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Workflow map</h3>
+          <p class="muted">I map the current process, handoffs, repeated decisions, files, tools, and failure points from your intake materials.</p>
+        </article>
+        <article class="card">
+          <h3>Automation shortlist</h3>
+          <p class="muted">I identify three recommended automations ranked by setup effort, expected time saved, data risk, and owner.</p>
+        </article>
+        <article class="card">
+          <h3>Implementation brief</h3>
+          <p class="muted">I write one build-ready brief for the top automation with trigger, inputs, outputs, guardrails, and acceptance tests.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="pricing">
+      <div class="split">
+        <div>
+          <h2>Three scopes. One clear next step.</h2>
+          <p class="muted">Start with a quick audit, upgrade to a build-ready spec, or scope a focused sprint when the workflow has enough value to justify implementation.</p>
+        </div>
+        <div class="card">
+          <div class="price">$149</div>
+          <p><strong>Starter: 48-hour audit</strong></p>
+          <ul>
+            <li>Review of one workflow or client-facing process</li>
+            <li>Up to five linked documents, screenshots, or tool exports</li>
+            <li>3 ranked automation opportunities</li>
+            <li>One revision pass for factual corrections</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="price">$349</div>
+          <p><strong>Builder: audit plus implementation spec</strong></p>
+          <ul>
+            <li>Everything in Starter</li>
+            <li>Field map, prompt skeleton, or automation outline</li>
+            <li>Tool-by-tool implementation notes</li>
+            <li>QA checklist and acceptance checks</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="price">$1,250</div>
+          <p><strong>Sprint: 5-day automation package</strong></p>
+          <ul>
+            <li>Workflow audit and implementation plan</li>
+            <li>Prototype logic or automation scaffold where feasible</li>
+            <li>Risk, rollback, and handoff documentation</li>
+            <li>Best for one high-value operational bottleneck</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="intake">
+      <div class="split">
+        <div>
+          <h2>Start with the process that annoys you most.</h2>
+          <p class="muted">Start with one workflow and no system access. I review the intake, confirm scope, then deliver the report after payment confirmation.</p>
+        </div>
+        <form onsubmit="event.preventDefault(); buildEmail();">
+          <div>
+            <label for="name">Name</label>
+            <input id="name" name="name" autocomplete="name" required>
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div>
+            <label for="workflow">Workflow to audit</label>
+            <textarea id="workflow" name="workflow" required placeholder="Example: lead intake, weekly reporting, invoice prep, customer support triage"></textarea>
+          </div>
+          <div>
+            <label for="tools">Current tools</label>
+            <input id="tools" name="tools" placeholder="Gmail, Airtable, Notion, Slack, HubSpot, Excel...">
+          </div>
+          <button class="button" type="submit">Create GitHub intake draft</button>
+          <p class="muted" id="mailto-note">The next step opens a public GitHub issue draft. Do not include secrets or sensitive customer data.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Payment links are added per engagement. Work begins after scope and payment confirmation. Delivery timing starts after complete intake materials are received.
+  </footer>
+
+  <script>
+    const AUDIT_REQUEST_URL = "https://github.com/auruminternum/workflow-audit-service/issues/new?template=audit-request.yml";
+    function buildEmail() {
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const workflow = document.getElementById("workflow").value.trim();
+      const tools = document.getElementById("tools").value.trim();
+      const subject = encodeURIComponent("Audit request: " + workflow.slice(0, 60));
+      const body = encodeURIComponent([
+        "Requester: " + name,
+        "Reply contact: " + email,
+        "Workflow: " + workflow,
+        "Tools: " + tools,
+        "",
+        "I understand the audit is scoped to one workflow and begins after payment confirmation."
+      ].join("\n"));
+      window.location.href = AUDIT_REQUEST_URL + "&title=" + subject + "&body=" + body;
+    }
+  </script>
+</body>
+</html>

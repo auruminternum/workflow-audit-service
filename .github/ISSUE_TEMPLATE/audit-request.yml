@@ -1,0 +1,68 @@
+name: Request a Workflow Audit
+description: Request a paid workflow audit or implementation brief.
+title: "Audit request: "
+labels: ["audit-request"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form to request a scoped workflow audit. Do not include passwords, API keys, private keys, regulated personal data, or customer records that are not anonymized.
+  - type: dropdown
+    id: package
+    attributes:
+      label: Package
+      description: Choose the service level you want quoted or started.
+      options:
+        - Starter audit - $149
+        - Builder spec - $349
+        - Five-day sprint - $1,250
+        - Not sure yet
+    validations:
+      required: true
+  - type: input
+    id: workflow
+    attributes:
+      label: Workflow to review
+      placeholder: "Example: weekly client reporting, lead intake, support triage"
+    validations:
+      required: true
+  - type: textarea
+    id: current_steps
+    attributes:
+      label: Current steps
+      description: Briefly describe how the workflow runs today.
+      placeholder: |
+        1. New lead arrives by form
+        2. Team copies details to spreadsheet
+        3. Manager assigns owner in Slack
+    validations:
+      required: true
+  - type: input
+    id: tools
+    attributes:
+      label: Tools involved
+      placeholder: "Gmail, Google Sheets, Airtable, Notion, Slack, HubSpot..."
+    validations:
+      required: true
+  - type: textarea
+    id: materials
+    attributes:
+      label: Available materials
+      description: List screenshots, anonymized exports, sample docs, or examples you can provide.
+    validations:
+      required: false
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Desired outcome
+      description: What should be better after this workflow is audited or automated?
+      placeholder: "Fewer hours, fewer errors, faster response, cleaner handoff, better tracking..."
+    validations:
+      required: true
+  - type: checkboxes
+    id: boundary
+    attributes:
+      label: Safety boundary
+      options:
+        - label: I will not include passwords, API keys, private keys, regulated personal data, or unanonymized customer records in this issue.
+          required: true
