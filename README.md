@@ -23,7 +23,7 @@ The report builder in this repository is an internal delivery tool used to produ
 ## Request Work
 
 - Request a paid workflow audit: https://github.com/auruminternum/workflow-audit-service/issues/new?template=audit-request.yml
-- Ask about white-label adaptation: https://github.com/auruminternum/workflow-audit-service/issues/new?template=white-label-license.yml
+- Request white-label agency support: https://github.com/auruminternum/workflow-audit-service/issues/new?template=white-label-license.yml
 - Public landing page: https://auruminternum.github.io/workflow-audit-service/
 
 ## Files

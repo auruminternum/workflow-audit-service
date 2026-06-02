@@ -1,12 +1,12 @@
-name: White-Label or Adaptation Inquiry
-description: Ask about adapting the workflow audit kit for your consulting or automation business.
+name: White-Label or Agency Inquiry
+description: Request paid white-label audit/spec support for an agency, consultant, or automation practice.
 title: "White-label inquiry: "
 labels: ["white-label"]
 body:
   - type: markdown
     attributes:
       value: |
-        Use this form if you want to adapt the workflow audit report builder, listing copy, or delivery template for your agency or consulting practice.
+        Use this form if you want a paid white-label audit/spec draft or adaptation for your agency or consulting practice. Do not include credentials, secrets, regulated personal data, or unanonymized customer records.
   - type: input
     id: organization
     attributes:
@@ -19,8 +19,9 @@ body:
     attributes:
       label: Use case
       options:
-        - Use internally for client discovery
-        - White-label as a paid diagnostic
+        - White-label Starter audit/spec draft - $149
+        - White-label Builder audit/spec draft - $349
+        - Focused sprint handoff package - $1,250
         - Adapt for Airtable/Make/Zapier/n8n consulting
         - Adapt for operations consulting
         - Other
@@ -29,10 +30,17 @@ body:
   - type: textarea
     id: adaptation
     attributes:
-      label: What should be adapted?
-      placeholder: "Example: Airtable-specific schema section, support-ticket workflow language, Spanish version, branded report template..."
+      label: Workflow or adaptation needed
+      placeholder: "Example: white-label draft for a support-ticket triage workflow, Airtable-specific schema section, Spanish version, branded report template..."
     validations:
       required: true
+  - type: textarea
+    id: materials
+    attributes:
+      label: Materials you can provide
+      placeholder: "Anonymized notes, screenshots, exports, process summaries, client discovery transcript, or sample docs..."
+    validations:
+      required: false
   - type: input
     id: budget
     attributes:
