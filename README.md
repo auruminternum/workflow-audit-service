@@ -25,10 +25,12 @@ The report builder in this repository is an internal delivery tool used to produ
 - Request a paid workflow audit: https://github.com/auruminternum/workflow-audit-service/issues/new?template=audit-request.yml
 - Request white-label agency support: https://github.com/auruminternum/workflow-audit-service/issues/new?template=white-label-license.yml
 - Public landing page: https://auruminternum.github.io/workflow-audit-service/
+- Agency white-label page: https://auruminternum.github.io/workflow-audit-service/agencies.html
 
 ## Files
 
 - `index.html`: public landing page for the service.
+- `agencies.html`: agency-specific white-label audit/spec offer page.
 - `workflow_audit_report_builder.html`: internal offline report builder for producing client deliverables.
 - `marketplace_listing_ready.md`: listing copy for Gumroad, Payhip, Fiverr, Contra, Upwork, AnyTasks, or similar marketplaces.
 

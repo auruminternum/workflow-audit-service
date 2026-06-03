@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>White-Label Workflow Audit Drafts</title>
+  <style>
+    :root {
+      --ink: #15161a;
+      --muted: #5e6572;
+      --line: #d8dde6;
+      --paper: #f7f5ef;
+      --panel: #ffffff;
+      --accent: #0e7c66;
+      --accent-2: #c83e2d;
+      --focus: #244c9a;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.5;
+    }
+    header {
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.82);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(12px);
+    }
+    .nav, main, footer {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+    .nav {
+      min-height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .brand {
+      font-weight: 760;
+      font-size: 18px;
+      letter-spacing: 0;
+    }
+    .nav a, .button {
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 680;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 14px;
+    }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      border: 1px solid var(--ink);
+      background: var(--ink);
+      color: white;
+      padding: 0 18px;
+      border-radius: 6px;
+    }
+    .button.secondary {
+      background: transparent;
+      color: var(--ink);
+      border-color: var(--line);
+    }
+    .hero {
+      min-height: calc(100vh - 64px);
+      display: grid;
+      grid-template-columns: 1fr 0.95fr;
+      align-items: center;
+      gap: 56px;
+      padding: 60px 0 42px;
+    }
+    h1 {
+      font-size: clamp(42px, 6vw, 74px);
+      line-height: 0.98;
+      margin: 0 0 24px;
+      letter-spacing: 0;
+      max-width: 780px;
+    }
+    h2 {
+      font-size: 34px;
+      line-height: 1.08;
+      letter-spacing: 0;
+      margin: 0 0 18px;
+    }
+    h3 {
+      font-size: 17px;
+      margin: 0 0 8px;
+      letter-spacing: 0;
+    }
+    p { margin: 0 0 12px; }
+    .lead {
+      color: var(--muted);
+      font-size: 20px;
+      max-width: 660px;
+      margin: 0 0 28px;
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 28px 0 20px;
+    }
+    .proof {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .proof span {
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.64);
+      padding: 8px 10px;
+      border-radius: 999px;
+    }
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 22px;
+      box-shadow: 0 18px 40px rgba(21, 22, 26, 0.08);
+    }
+    .queue {
+      display: grid;
+      gap: 12px;
+      margin-top: 10px;
+    }
+    .queue-row {
+      border: 1px solid var(--line);
+      border-left: 5px solid var(--accent);
+      border-radius: 6px;
+      background: #fdfdfb;
+      padding: 12px;
+    }
+    .queue-row strong { display: block; }
+    .muted { color: var(--muted); }
+    section {
+      padding: 64px 0;
+      border-top: 1px solid var(--line);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 20px;
+    }
+    .price {
+      font-size: 42px;
+      font-weight: 780;
+      letter-spacing: 0;
+      margin: 6px 0;
+    }
+    .split {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 40px;
+      align-items: start;
+    }
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    li {
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(21, 22, 26, 0.1);
+    }
+    .warning {
+      border-left: 5px solid var(--accent-2);
+    }
+    footer {
+      padding: 34px 0 48px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    @media (max-width: 860px) {
+      .nav { align-items: flex-start; padding: 14px 0; }
+      .nav-links { display: none; }
+      .hero, .split, .grid {
+        grid-template-columns: 1fr;
+      }
+      .hero { min-height: auto; padding-top: 44px; }
+      h1 { font-size: 44px; }
+      .lead { font-size: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <div class="brand">AI Workflow Leak Audit</div>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="index.html">Main offer</a>
+        <a href="sample-audit.md">Sample</a>
+        <a href="#packages">Packages</a>
+        <a href="#intake">Intake</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="hero">
+      <div>
+        <h1>White-label audit drafts for automation agencies.</h1>
+        <p class="lead">Turn messy discovery notes into a client-ready workflow map, automation shortlist, and build brief without giving me access to client systems.</p>
+        <div class="actions">
+          <a class="button" href="https://github.com/auruminternum/workflow-audit-service/issues/new?template=white-label-license.yml">Request a paid draft</a>
+          <a class="button secondary" href="sample-audit.md">Review sample</a>
+          <a class="button secondary" href="marketplace_listing_ready.md">See listing copy</a>
+        </div>
+        <div class="proof">
+          <span>48-72 hour draft</span>
+          <span>No credentials needed</span>
+          <span>Built for resale or pre-sales</span>
+        </div>
+      </div>
+      <div class="panel" aria-label="Agency delivery queue preview">
+        <h2>What I produce</h2>
+        <div class="queue">
+          <div class="queue-row">
+            <strong>Workflow map</strong>
+            <span class="muted">Current steps, handoffs, tools, decisions, inputs, outputs, and failure points.</span>
+          </div>
+          <div class="queue-row">
+            <strong>Ranked automation opportunities</strong>
+            <span class="muted">Three options scored by value, effort, data risk, confidence, and owner.</span>
+          </div>
+          <div class="queue-row">
+            <strong>Implementation-ready brief</strong>
+            <span class="muted">Trigger, field map, prompt or automation skeleton, guardrails, acceptance checks, and handoff notes.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section id="fit">
+      <h2>Best fit</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Automation agencies</h3>
+          <p class="muted">Useful when free audits create more qualified leads than your senior builders can document.</p>
+        </article>
+        <article class="card">
+          <h3>Airtable, n8n, Make, Zapier teams</h3>
+          <p class="muted">Useful when a build needs cleaner input/output mapping before implementation starts.</p>
+        </article>
+        <article class="card">
+          <h3>Ops consultants</h3>
+          <p class="muted">Useful when process improvement work needs a concrete artifact before a larger engagement.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="packages">
+      <div class="split">
+        <div>
+          <h2>White-label packages</h2>
+          <p class="muted">Each package is scoped to one workflow. You can use anonymized notes, screenshots, exports, discovery transcripts, or a short process summary.</p>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <div class="price">$149</div>
+            <p><strong>Starter draft</strong></p>
+            <ul>
+              <li>One workflow map</li>
+              <li>3 ranked opportunities</li>
+              <li>Top recommendation</li>
+              <li>One factual correction pass</li>
+            </ul>
+          </article>
+          <article class="card">
+            <div class="price">$349</div>
+            <p><strong>Builder draft</strong></p>
+            <ul>
+              <li>Everything in Starter</li>
+              <li>Field map or data model</li>
+              <li>Automation/prompt skeleton</li>
+              <li>QA and acceptance checklist</li>
+            </ul>
+          </article>
+          <article class="card">
+            <div class="price">$1,250</div>
+            <p><strong>Sprint handoff</strong></p>
+            <ul>
+              <li>Audit and implementation plan</li>
+              <li>Prototype logic where feasible</li>
+              <li>Rollback and risk notes</li>
+              <li>Delivery target: 5 business days</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="intake">
+      <div class="split">
+        <div>
+          <h2>Send only safe materials.</h2>
+          <p class="muted">I do not need client credentials, system access, API keys, private customer records, or regulated personal data. Redacted artifacts are enough for the first draft.</p>
+        </div>
+        <div class="panel warning">
+          <ul>
+            <li>Do send: process notes, redacted screenshots, sample exports, tool names, discovery summaries, and target outcomes.</li>
+            <li>Do not send: passwords, private keys, API tokens, raw regulated data, or unanonymized customer records.</li>
+            <li>Work starts after scope and payment confirmation. Delivery timing starts after complete intake materials are received.</li>
+          </ul>
+          <div class="actions">
+            <a class="button" href="https://github.com/auruminternum/workflow-audit-service/issues/new?template=white-label-license.yml">Open agency intake</a>
+            <a class="button secondary" href="index.html">Back to main offer</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Public GitHub profile: <a href="https://github.com/auruminternum">auruminternum</a>. Payment links are added per engagement after scope confirmation.
+  </footer>
+</body>
+</html>
