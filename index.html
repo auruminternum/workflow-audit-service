@@ -406,7 +406,7 @@
           <h2>Start with the process that annoys you most.</h2>
           <p class="muted">Start with one workflow and no system access. I review the intake, confirm scope, then deliver the report after payment confirmation.</p>
         </div>
-        <form onsubmit="event.preventDefault(); buildEmail();">
+        <form onsubmit="event.preventDefault(); buildGitHubIssue();">
           <div>
             <label for="name">Name</label>
             <input id="name" name="name" autocomplete="name" required>
@@ -435,18 +435,27 @@
   </footer>
 
   <script>
-    const AUDIT_REQUEST_URL = "https://github.com/auruminternum/workflow-audit-service/issues/new?template=audit-request.yml";
-    function buildEmail() {
+    const AUDIT_REQUEST_URL = "https://github.com/auruminternum/workflow-audit-service/issues/new?template=direct-audit-intake.md";
+    function buildGitHubIssue() {
       const name = document.getElementById("name").value.trim();
       const email = document.getElementById("email").value.trim();
       const workflow = document.getElementById("workflow").value.trim();
       const tools = document.getElementById("tools").value.trim();
       const subject = encodeURIComponent("Audit request: " + workflow.slice(0, 60));
       const body = encodeURIComponent([
-        "Requester: " + name,
-        "Reply contact: " + email,
-        "Workflow: " + workflow,
-        "Tools: " + tools,
+        "## Requester",
+        name,
+        "",
+        "## Reply Contact",
+        email,
+        "",
+        "## Workflow",
+        workflow,
+        "",
+        "## Current Tools",
+        tools || "Not specified",
+        "",
+        "## Scope Confirmation",
         "",
         "I understand the audit is scoped to one workflow and begins after payment confirmation."
       ].join("\n"));
