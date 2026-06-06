@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Workflow ROI Calculator</title>
+  <style>
+    :root {
+      --ink: #15161a;
+      --muted: #5e6572;
+      --line: #d8dde6;
+      --paper: #f7f5ef;
+      --panel: #ffffff;
+      --accent: #0e7c66;
+      --accent-2: #c83e2d;
+      --focus: #244c9a;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.5;
+    }
+    header {
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.82);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(12px);
+    }
+    .nav, main, footer {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+    .nav {
+      min-height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .brand {
+      font-weight: 760;
+      font-size: 18px;
+      letter-spacing: 0;
+    }
+    .nav a, .button {
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 680;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 14px;
+    }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      border: 1px solid var(--ink);
+      background: var(--ink);
+      color: white;
+      padding: 0 18px;
+      border-radius: 6px;
+    }
+    .button.secondary {
+      background: transparent;
+      color: var(--ink);
+      border-color: var(--line);
+    }
+    .hero {
+      padding: 72px 0 44px;
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 44px;
+      align-items: start;
+    }
+    h1 {
+      font-size: clamp(42px, 6vw, 72px);
+      line-height: 0.98;
+      margin: 0 0 24px;
+      letter-spacing: 0;
+      max-width: 760px;
+    }
+    h2 {
+      font-size: 34px;
+      line-height: 1.08;
+      letter-spacing: 0;
+      margin: 0 0 18px;
+    }
+    h3 {
+      font-size: 17px;
+      margin: 0 0 8px;
+      letter-spacing: 0;
+    }
+    p { margin: 0 0 12px; }
+    .lead {
+      color: var(--muted);
+      font-size: 20px;
+      max-width: 680px;
+      margin: 0 0 28px;
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 28px 0 20px;
+    }
+    .proof {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .proof span {
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.64);
+      padding: 8px 10px;
+      border-radius: 999px;
+    }
+    .panel, .card {
+      background: rgba(255, 255, 255, 0.74);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+    .panel {
+      padding: 22px;
+      box-shadow: 0 18px 40px rgba(21, 22, 26, 0.08);
+    }
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+    label {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--muted);
+      margin-bottom: 7px;
+    }
+    input, select {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      min-height: 44px;
+      padding: 10px 12px;
+      font: inherit;
+      background: white;
+      color: var(--ink);
+    }
+    input:focus, select:focus, .button:focus {
+      outline: 3px solid rgba(36, 76, 154, 0.22);
+      border-color: var(--focus);
+    }
+    .results {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-top: 18px;
+    }
+    .card {
+      padding: 18px;
+      min-height: 126px;
+    }
+    .metric {
+      font-size: clamp(30px, 5vw, 44px);
+      font-weight: 780;
+      letter-spacing: 0;
+      margin: 4px 0 6px;
+      overflow-wrap: anywhere;
+    }
+    .muted { color: var(--muted); }
+    section {
+      padding: 64px 0;
+      border-top: 1px solid var(--line);
+    }
+    .split {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 40px;
+      align-items: start;
+    }
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    li {
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(21, 22, 26, 0.1);
+    }
+    .recommendation {
+      border-left: 5px solid var(--accent);
+    }
+    footer {
+      padding: 34px 0 48px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    @media (max-width: 860px) {
+      .nav { align-items: flex-start; padding: 14px 0; }
+      .nav-links { display: none; }
+      .hero, .split, .form-grid, .results {
+        grid-template-columns: 1fr;
+      }
+      .hero { padding-top: 44px; }
+      h1 { font-size: 44px; }
+      .lead { font-size: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <div class="brand">AI Workflow Leak Audit</div>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="index.html">Main offer</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="agencies.html">Agencies</a>
+        <a href="#next">Start</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="hero">
+      <div>
+        <h1>Estimate the cost of one leaky workflow.</h1>
+        <p class="lead">Use rough numbers to decide whether a repetitive process deserves a small audit, a build-ready spec, or a focused automation sprint.</p>
+        <div class="actions">
+          <a class="button" href="https://github.com/auruminternum/workflow-audit-service/issues/new?template=audit-request.yml">Request audit</a>
+          <a class="button secondary" href="portfolio.html">View portfolio</a>
+          <a class="button secondary" href="agencies.html">Agency packages</a>
+        </div>
+        <div class="proof">
+          <span>Estimate only</span>
+          <span>No data leaves this page</span>
+          <span>Built for one workflow</span>
+        </div>
+      </div>
+
+      <div class="panel" aria-label="Workflow ROI calculator">
+        <div class="form-grid">
+          <div>
+            <label for="hours">Hours wasted per person each week</label>
+            <input id="hours" type="number" min="0" step="0.5" value="4">
+          </div>
+          <div>
+            <label for="people">People affected</label>
+            <input id="people" type="number" min="1" step="1" value="3">
+          </div>
+          <div>
+            <label for="rate">Loaded hourly cost in USD</label>
+            <input id="rate" type="number" min="0" step="5" value="45">
+          </div>
+          <div>
+            <label for="recovery">Realistic recovery target</label>
+            <select id="recovery">
+              <option value="25">25% recovered</option>
+              <option value="40" selected>40% recovered</option>
+              <option value="60">60% recovered</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="results" aria-live="polite">
+          <div class="card">
+            <h3>Monthly waste</h3>
+            <div class="metric" id="monthlyWaste">$0</div>
+            <p class="muted">Hours, people, rate, and 4.33 weeks/month.</p>
+          </div>
+          <div class="card">
+            <h3>Annual waste</h3>
+            <div class="metric" id="annualWaste">$0</div>
+            <p class="muted">The rough yearly cost if the workflow is unchanged.</p>
+          </div>
+          <div class="card">
+            <h3>Recoverable value</h3>
+            <div class="metric" id="recoverableValue">$0</div>
+            <p class="muted">Estimated monthly value at the selected recovery target.</p>
+          </div>
+          <div class="card recommendation">
+            <h3>Suggested first step</h3>
+            <div class="metric" id="packagePrice">$149</div>
+            <p class="muted" id="packageName">Starter audit</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section id="next">
+      <div class="split">
+        <div>
+          <h2>Turn the estimate into a scoped request.</h2>
+          <p class="muted">The audit does not require system access. Redacted screenshots, exports, tool names, or process notes are enough for a first pass.</p>
+        </div>
+        <div class="card">
+          <ul>
+            <li>Below $750/month in waste: start with the $149 Starter audit.</li>
+            <li>$750 to $2,500/month in waste: use the $349 Builder audit/spec.</li>
+            <li>Above $2,500/month in waste: consider the $1,250 five-day sprint after scope review.</li>
+          </ul>
+          <div class="actions">
+            <a class="button" href="https://github.com/auruminternum/workflow-audit-service/issues/new?template=audit-request.yml">Open intake</a>
+            <a class="button secondary" href="sample-audit.md">Read sample audit</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Estimates are directional, not financial advice. Payment links are added per engagement after scope confirmation.
+  </footer>
+
+  <script>
+    const currency = new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+      maximumFractionDigits: 0
+    });
+
+    function numberValue(id) {
+      return Number(document.getElementById(id).value) || 0;
+    }
+
+    function updateCalculator() {
+      const weeksPerMonth = 4.33;
+      const hours = numberValue("hours");
+      const people = numberValue("people");
+      const rate = numberValue("rate");
+      const recovery = numberValue("recovery") / 100;
+      const monthlyWaste = hours * people * rate * weeksPerMonth;
+      const annualWaste = monthlyWaste * 12;
+      const recoverable = monthlyWaste * recovery;
+
+      let packageName = "Starter audit";
+      let packagePrice = "$149";
+      if (monthlyWaste >= 2500) {
+        packageName = "Sprint handoff";
+        packagePrice = "$1,250";
+      } else if (monthlyWaste >= 750) {
+        packageName = "Builder audit/spec";
+        packagePrice = "$349";
+      }
+
+      document.getElementById("monthlyWaste").textContent = currency.format(monthlyWaste);
+      document.getElementById("annualWaste").textContent = currency.format(annualWaste);
+      document.getElementById("recoverableValue").textContent = currency.format(recoverable);
+      document.getElementById("packageName").textContent = packageName;
+      document.getElementById("packagePrice").textContent = packagePrice;
+    }
+
+    document.querySelectorAll("input, select").forEach((field) => {
+      field.addEventListener("input", updateCalculator);
+      field.addEventListener("change", updateCalculator);
+    });
+    updateCalculator();
+  </script>
+</body>
+</html>
