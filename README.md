@@ -19,6 +19,7 @@ The report builder in this repository is an internal delivery tool used to produ
 - Starter audit: $149
 - Audit plus implementation spec: $349
 - Five-day automation sprint: $1,250
+- Ethical lead research sprint: $99-$349
 
 ## Request Work
 
@@ -26,6 +27,7 @@ The report builder in this repository is an internal delivery tool used to produ
 - Request white-label agency support: https://github.com/auruminternum/workflow-audit-service/issues/new?template=white-label-license.yml
 - Public landing page: https://auruminternum.github.io/workflow-audit-service/
 - Workflow ROI calculator: https://auruminternum.github.io/workflow-audit-service/roi-calculator.html
+- Ethical lead research sprint: https://auruminternum.github.io/workflow-audit-service/lead-research.html
 - Agency white-label page: https://auruminternum.github.io/workflow-audit-service/agencies.html
 - Portfolio page: https://auruminternum.github.io/workflow-audit-service/portfolio.html
 - Agency white-label sample: https://auruminternum.github.io/workflow-audit-service/agency-sample-audit.md
@@ -34,6 +36,8 @@ The report builder in this repository is an internal delivery tool used to produ
 
 - `index.html`: public landing page for the service.
 - `roi-calculator.html`: prospect-facing calculator for estimating monthly waste, recoverable value, and the suggested first paid step.
+- `lead-research.html`: public-source lead research sprint offer for founders and agencies.
+- `agency_outreach_sample.md`: sample delivery shape for ethical lead research and manual-send outreach drafts.
 - `agencies.html`: agency-specific white-label audit/spec offer page.
 - `portfolio.html`: prospect-facing proof page with samples, buyer fit, and intake links.
 - `agency-sample-audit.md`: agency-specific sample white-label audit/spec deliverable.

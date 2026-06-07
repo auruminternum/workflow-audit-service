@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>White-Label Workflow Audit Drafts</title>
+  <title>Ethical AI Lead Research Sprint</title>
   <style>
     :root {
       --ink: #15161a;
@@ -79,7 +79,7 @@
       display: grid;
       grid-template-columns: 1fr 0.95fr;
       align-items: center;
-      gap: 56px;
+      gap: 52px;
       padding: 60px 0 42px;
     }
     h1 {
@@ -87,7 +87,7 @@
       line-height: 0.98;
       margin: 0 0 24px;
       letter-spacing: 0;
-      max-width: 780px;
+      max-width: 820px;
     }
     h2 {
       font-size: 34px;
@@ -104,7 +104,7 @@
     .lead {
       color: var(--muted);
       font-size: 20px;
-      max-width: 660px;
+      max-width: 700px;
       margin: 0 0 28px;
     }
     .actions {
@@ -126,27 +126,32 @@
       padding: 8px 10px;
       border-radius: 999px;
     }
-    .panel {
-      background: var(--panel);
+    .panel, .card {
+      background: rgba(255, 255, 255, 0.74);
       border: 1px solid var(--line);
       border-radius: 8px;
+    }
+    .panel {
       padding: 22px;
       box-shadow: 0 18px 40px rgba(21, 22, 26, 0.08);
     }
-    .queue {
+    .lead-table {
       display: grid;
-      gap: 12px;
-      margin-top: 10px;
+      gap: 10px;
     }
-    .queue-row {
+    .lead-row {
+      display: grid;
+      grid-template-columns: 1fr 0.9fr 0.9fr;
+      gap: 10px;
+      align-items: start;
       border: 1px solid var(--line);
       border-left: 5px solid var(--accent);
       border-radius: 6px;
       background: #fdfdfb;
       padding: 12px;
+      font-size: 13px;
     }
-    .queue-row strong { display: block; }
-    .muted { color: var(--muted); }
+    .lead-row strong { display: block; }
     section {
       padding: 64px 0;
       border-top: 1px solid var(--line);
@@ -156,12 +161,7 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 18px;
     }
-    .card {
-      background: rgba(255, 255, 255, 0.72);
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      padding: 20px;
-    }
+    .card { padding: 20px; }
     .price {
       font-size: 42px;
       font-weight: 780;
@@ -183,9 +183,8 @@
       padding: 10px 0;
       border-bottom: 1px solid rgba(21, 22, 26, 0.1);
     }
-    .warning {
-      border-left: 5px solid var(--accent-2);
-    }
+    .muted { color: var(--muted); }
+    .warning { border-left: 5px solid var(--accent-2); }
     footer {
       padding: 34px 0 48px;
       color: var(--muted);
@@ -194,7 +193,7 @@
     @media (max-width: 860px) {
       .nav { align-items: flex-start; padding: 14px 0; }
       .nav-links { display: none; }
-      .hero, .split, .grid {
+      .hero, .split, .grid, .lead-row {
         grid-template-columns: 1fr;
       }
       .hero { min-height: auto; padding-top: 44px; }
@@ -210,11 +209,9 @@
       <nav class="nav-links" aria-label="Primary">
         <a href="index.html">Main offer</a>
         <a href="roi-calculator.html">ROI calculator</a>
-        <a href="lead-research.html">Lead research</a>
         <a href="portfolio.html">Portfolio</a>
-        <a href="agency-sample-audit.md">Agency sample</a>
+        <a href="agencies.html">Agencies</a>
         <a href="#packages">Packages</a>
-        <a href="#intake">Intake</a>
       </nav>
     </div>
   </header>
@@ -222,118 +219,120 @@
   <main>
     <div class="hero">
       <div>
-        <h1>White-label audit drafts for automation agencies.</h1>
-        <p class="lead">Turn messy discovery notes into a client-ready workflow map, automation shortlist, and build brief without giving me access to client systems.</p>
+        <h1>Ethical lead research for AI and automation offers.</h1>
+        <p class="lead">I build a vetted prospect list with public-source fit signals, workflow pain indicators, and first-touch message angles so founders and agencies can sell without buying a scraped inbox dump.</p>
         <div class="actions">
-          <a class="button" href="https://github.com/auruminternum/workflow-audit-service/issues/new?template=white-label-license.yml">Request a paid draft</a>
-          <a class="button secondary" href="roi-calculator.html">Estimate client ROI</a>
-          <a class="button secondary" href="lead-research.html">Request lead list</a>
-          <a class="button secondary" href="agency-sample-audit.md">Review agency sample</a>
+          <a class="button" href="https://github.com/auruminternum/workflow-audit-service/issues/new?template=lead-research-request.yml">Request lead sprint</a>
+          <a class="button secondary" href="agency_outreach_sample.md">Read sample pack</a>
           <a class="button secondary" href="portfolio.html">View portfolio</a>
-          <a class="button secondary" href="marketplace_listing_ready.md">See listing copy</a>
         </div>
         <div class="proof">
-          <span>48-72 hour draft</span>
-          <span>No credentials needed</span>
-          <span>Built for resale or pre-sales</span>
+          <span>Public sources only</span>
+          <span>No spam automation</span>
+          <span>48-72 hour delivery</span>
         </div>
       </div>
-      <div class="panel" aria-label="Agency delivery queue preview">
-        <h2>What I produce</h2>
-        <div class="queue">
-          <div class="queue-row">
-            <strong>Workflow map</strong>
-            <span class="muted">Current steps, handoffs, tools, decisions, inputs, outputs, and failure points.</span>
+      <div class="panel" aria-label="Lead research preview">
+        <h2>What a list contains</h2>
+        <div class="lead-table">
+          <div class="lead-row">
+            <strong>Prospect</strong>
+            <strong>Fit signal</strong>
+            <strong>Message angle</strong>
           </div>
-          <div class="queue-row">
-            <strong>Ranked automation opportunities</strong>
-            <span class="muted">Three options scored by value, effort, data risk, confidence, and owner.</span>
+          <div class="lead-row">
+            <span>Automation agency selling free audits</span>
+            <span class="muted">Visible discovery bottleneck and delivery workload.</span>
+            <span class="muted">Offer white-label audit/spec drafts.</span>
           </div>
-          <div class="queue-row">
-            <strong>Implementation-ready brief</strong>
-            <span class="muted">Trigger, field map, prompt or automation skeleton, guardrails, acceptance checks, and handoff notes.</span>
+          <div class="lead-row">
+            <span>Ops consultant with Airtable/Zapier case studies</span>
+            <span class="muted">Process work but limited implementation examples.</span>
+            <span class="muted">Offer workflow ROI audit for client pipeline.</span>
+          </div>
+          <div class="lead-row">
+            <span>AI enablement shop publishing vague strategy content</span>
+            <span class="muted">High intent, weak concrete deliverables.</span>
+            <span class="muted">Offer fixed-scope implementation brief.</span>
           </div>
         </div>
       </div>
     </div>
 
-    <section id="fit">
-      <h2>Best fit</h2>
+    <section>
+      <h2>Built for careful outbound, not bulk spam.</h2>
       <div class="grid">
         <article class="card">
-          <h3>Automation agencies</h3>
-          <p class="muted">Useful when free audits create more qualified leads than your senior builders can document.</p>
+          <h3>Buyer-fit research</h3>
+          <p class="muted">Prospects are selected from public websites, directories, GitHub, job posts, product pages, and visible service positioning.</p>
         </article>
         <article class="card">
-          <h3>Airtable, n8n, Make, Zapier teams</h3>
-          <p class="muted">Useful when a build needs cleaner input/output mapping before implementation starts.</p>
+          <h3>Signal notes</h3>
+          <p class="muted">Each row includes why the prospect fits, what workflow pain is visible, and what offer angle is most credible.</p>
         </article>
         <article class="card">
-          <h3>Ops consultants</h3>
-          <p class="muted">Useful when process improvement work needs a concrete artifact before a larger engagement.</p>
+          <h3>Message drafts</h3>
+          <p class="muted">Short, one-off outreach drafts are written for manual review and sending by the buyer, with no fake relationship claims.</p>
         </article>
-      </div>
-      <div class="actions">
-        <a class="button secondary" href="agency-sample-audit.md">Open agency sample audit</a>
       </div>
     </section>
 
     <section id="packages">
       <div class="split">
         <div>
-          <h2>White-label packages</h2>
-          <p class="muted">Each package is scoped to one workflow. You can use anonymized notes, screenshots, exports, discovery transcripts, or a short process summary.</p>
+          <h2>Packages that can pay for themselves with one reply.</h2>
+          <p class="muted">The fastest fit is a founder, consultant, or small agency that already has a defined offer and needs a cleaner list of people worth contacting.</p>
         </div>
         <div class="grid">
           <article class="card">
-            <div class="price">$149</div>
-            <p><strong>Starter draft</strong></p>
+            <div class="price">$99</div>
+            <p><strong>Starter list</strong></p>
             <ul>
-              <li>One workflow map</li>
-              <li>3 ranked opportunities</li>
-              <li>Top recommendation</li>
-              <li>One factual correction pass</li>
+              <li>25 prospects</li>
+              <li>Fit signal per row</li>
+              <li>One message angle per prospect</li>
+              <li>CSV or Markdown delivery</li>
+            </ul>
+          </article>
+          <article class="card">
+            <div class="price">$199</div>
+            <p><strong>Focused sprint</strong></p>
+            <ul>
+              <li>50 prospects</li>
+              <li>Source links and buyer-fit notes</li>
+              <li>Personalized first-touch drafts</li>
+              <li>One revision pass</li>
             </ul>
           </article>
           <article class="card">
             <div class="price">$349</div>
-            <p><strong>Builder draft</strong></p>
+            <p><strong>Pipeline pack</strong></p>
             <ul>
-              <li>Everything in Starter</li>
-              <li>Field map or data model</li>
-              <li>Automation/prompt skeleton</li>
-              <li>QA and acceptance checklist</li>
-            </ul>
-          </article>
-          <article class="card">
-            <div class="price">$1,250</div>
-            <p><strong>Sprint handoff</strong></p>
-            <ul>
-              <li>Audit and implementation plan</li>
-              <li>Prototype logic where feasible</li>
-              <li>Rollback and risk notes</li>
-              <li>Delivery target: 5 business days</li>
+              <li>100 prospects</li>
+              <li>Segmented by offer angle</li>
+              <li>Manual-send outreach sequence</li>
+              <li>Priority delivery window</li>
             </ul>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="intake">
+    <section>
       <div class="split">
         <div>
-          <h2>Send only safe materials.</h2>
-          <p class="muted">I do not need client credentials, system access, API keys, private customer records, or regulated personal data. Redacted artifacts are enough for the first draft.</p>
+          <h2>Clear boundaries.</h2>
+          <p class="muted">This is research and copy support for lawful manual outreach. It is not a scraping bot, lead resale dump, or inbox automation service.</p>
         </div>
-        <div class="panel warning">
+        <div class="card warning">
           <ul>
-            <li>Do send: process notes, redacted screenshots, sample exports, tool names, discovery summaries, and target outcomes.</li>
-            <li>Do not send: passwords, private keys, API tokens, raw regulated data, or unanonymized customer records.</li>
-            <li>Work starts after scope and payment confirmation. Delivery timing starts after complete intake materials are received.</li>
+            <li>No CAPTCHA bypass, account evasion, private data scraping, or purchased personal contact dumps.</li>
+            <li>No automated sending, fake identity, fake relationship claims, or platform manipulation.</li>
+            <li>Only public business context and buyer-fit signals are used in the delivered list.</li>
           </ul>
           <div class="actions">
-            <a class="button" href="https://github.com/auruminternum/workflow-audit-service/issues/new?template=white-label-license.yml">Open agency intake</a>
-            <a class="button secondary" href="index.html">Back to main offer</a>
+            <a class="button" href="https://github.com/auruminternum/workflow-audit-service/issues/new?template=lead-research-request.yml">Open lead research intake</a>
+            <a class="button secondary" href="index.html">Back to audit offer</a>
           </div>
         </div>
       </div>
@@ -341,7 +340,7 @@
   </main>
 
   <footer>
-    Public GitHub profile: <a href="https://github.com/auruminternum">auruminternum</a>. Payment links are added per engagement after scope confirmation.
+    Payment links are added per engagement after scope confirmation. Delivery begins after complete intake and payment confirmation.
   </footer>
 </body>
 </html>

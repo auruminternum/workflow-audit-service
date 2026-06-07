@@ -1,0 +1,61 @@
+name: Lead research request
+description: Request an ethical public-source lead research sprint
+title: "Lead research request: "
+labels: ["lead-research"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this intake for a paid lead research sprint. Do not include passwords, API keys, private customer records, or regulated personal data.
+  - type: input
+    id: contact
+    attributes:
+      label: Reply contact
+      description: Email or preferred public contact route for scope confirmation.
+      placeholder: name@example.com
+    validations:
+      required: true
+  - type: dropdown
+    id: package
+    attributes:
+      label: Package
+      options:
+        - Starter list - 25 prospects - $99
+        - Focused sprint - 50 prospects - $199
+        - Pipeline pack - 100 prospects - $349
+        - Not sure yet
+    validations:
+      required: true
+  - type: textarea
+    id: offer
+    attributes:
+      label: Offer being sold
+      description: Describe the service, product, or deal you want prospects for.
+      placeholder: "Example: n8n automation implementation for small agencies..."
+    validations:
+      required: true
+  - type: textarea
+    id: buyer
+    attributes:
+      label: Ideal buyer
+      description: Describe industries, company size, geography, tools, or trigger signals.
+      placeholder: "Example: US-based agencies selling AI automation, with public case studies and contact forms..."
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: Allowed sources
+      description: List public sources or directories you want prioritized or avoided.
+      placeholder: "Public websites, GitHub, agency directories, marketplace profiles, job posts..."
+    validations:
+      required: true
+  - type: checkboxes
+    id: boundaries
+    attributes:
+      label: Boundaries
+      options:
+        - label: I only want public-source research and manual-send outreach drafts.
+          required: true
+        - label: I do not want CAPTCHA bypass, private data scraping, purchased contact dumps, fake identities, or automated sending.
+          required: true
