@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Order Lead Research Sprint</title>
+  <style>
+    :root {
+      --ink: #15161a;
+      --muted: #5e6572;
+      --line: #d8dde6;
+      --paper: #f7f5ef;
+      --panel: #ffffff;
+      --accent: #0e7c66;
+      --accent-2: #c83e2d;
+      --focus: #244c9a;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.5;
+    }
+    header {
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.82);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(12px);
+    }
+    .nav, main, footer {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+    .nav {
+      min-height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .brand {
+      font-weight: 760;
+      font-size: 18px;
+      letter-spacing: 0;
+    }
+    .nav a, .button {
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 680;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 14px;
+    }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      border: 1px solid var(--ink);
+      background: var(--ink);
+      color: white;
+      padding: 0 18px;
+      border-radius: 6px;
+    }
+    .button.secondary {
+      background: transparent;
+      color: var(--ink);
+      border-color: var(--line);
+    }
+    .hero { padding: 72px 0 44px; }
+    h1 {
+      font-size: clamp(42px, 6vw, 72px);
+      line-height: 0.98;
+      margin: 0 0 24px;
+      letter-spacing: 0;
+      max-width: 850px;
+    }
+    h2 {
+      font-size: 34px;
+      line-height: 1.08;
+      letter-spacing: 0;
+      margin: 0 0 18px;
+    }
+    h3 {
+      font-size: 17px;
+      margin: 0 0 8px;
+      letter-spacing: 0;
+    }
+    p { margin: 0 0 12px; }
+    .lead {
+      color: var(--muted);
+      font-size: 20px;
+      max-width: 720px;
+      margin: 0 0 28px;
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 28px 0 20px;
+    }
+    section {
+      padding: 64px 0;
+      border-top: 1px solid var(--line);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.74);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 20px;
+    }
+    .split {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 40px;
+      align-items: start;
+    }
+    .price {
+      font-size: 42px;
+      font-weight: 780;
+      letter-spacing: 0;
+      margin: 6px 0;
+    }
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    li {
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(21, 22, 26, 0.1);
+    }
+    .muted { color: var(--muted); }
+    .warning { border-left: 5px solid var(--accent-2); }
+    footer {
+      padding: 34px 0 48px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    @media (max-width: 860px) {
+      .nav { align-items: flex-start; padding: 14px 0; }
+      .nav-links { display: none; }
+      .split, .grid { grid-template-columns: 1fr; }
+      .hero { padding-top: 44px; }
+      h1 { font-size: 44px; }
+      .lead { font-size: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <div class="brand">AI Workflow Leak Audit</div>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="lead-research.html">Lead research</a>
+        <a href="lead_research_rate_card.md">Rate card</a>
+        <a href="lead_research_close_kit.md">Close kit</a>
+        <a href="lead_research_delivery_template.csv">CSV template</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Order a public-source lead research sprint.</h1>
+      <p class="lead">Use this page when you are ready to scope a paid lead list. Payment links are created after scope confirmation; delivery starts after complete intake and payment confirmation.</p>
+      <div class="actions">
+        <a class="button" href="https://github.com/auruminternum/workflow-audit-service/issues/new?template=lead-research-request.yml">Open order intake</a>
+        <a class="button secondary" href="lead_research_rate_card.md">Review packages</a>
+        <a class="button secondary" href="agency_outreach_sample.md">See sample</a>
+      </div>
+    </section>
+
+    <section>
+      <div class="grid">
+        <article class="card">
+          <div class="price">$99</div>
+          <h3>Starter list</h3>
+          <p class="muted">25 public-source prospects with source links, fit signals, and message angles.</p>
+        </article>
+        <article class="card">
+          <div class="price">$199</div>
+          <h3>Focused sprint</h3>
+          <p class="muted">50 prospects with source links, buyer-fit notes, visible pain notes, and first-touch drafts.</p>
+        </article>
+        <article class="card">
+          <div class="price">$349</div>
+          <h3>Pipeline pack</h3>
+          <p class="muted">100 prospects segmented by offer angle with manual-send outreach sequence support.</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="split">
+        <div>
+          <h2>Order flow.</h2>
+          <p class="muted">The process is deliberately small and reviewable so the work can start without unclear expectations.</p>
+        </div>
+        <div class="card">
+          <ul>
+            <li>1. Open the intake and describe your offer, buyer, geography, disallowed sources, and package.</li>
+            <li>2. I confirm scope and send a payment route for the agreed package.</li>
+            <li>3. Work starts after payment and complete intake are received.</li>
+            <li>4. Delivery is sent as CSV or Markdown using the agreed columns.</li>
+            <li>5. If included, one factual fit-correction pass is applied after review.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="split">
+        <div>
+          <h2>Delivery columns.</h2>
+          <p class="muted">Every paid list uses a structured format so the buyer can filter, review, and send manually.</p>
+          <div class="actions">
+            <a class="button secondary" href="lead_research_delivery_template.csv">Download CSV template</a>
+          </div>
+        </div>
+        <div class="card">
+          <ul>
+            <li>Prospect and website</li>
+            <li>Segment and geography</li>
+            <li>Public source URL</li>
+            <li>Fit signal and visible pain</li>
+            <li>Suggested angle and draft message</li>
+            <li>Notes, risk, and review status</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="split">
+        <div>
+          <h2>Boundaries.</h2>
+          <p class="muted">The service is research and copy support for lawful manual outreach. It is not sending infrastructure.</p>
+        </div>
+        <div class="card warning">
+          <ul>
+            <li>No automated sending, inbox warming, fake identity, fake relationship claims, or guaranteed replies.</li>
+            <li>No CAPTCHA bypass, account evasion, private data scraping, or purchased personal contact dumps.</li>
+            <li>No passwords, API keys, private customer records, or regulated personal data should be sent.</li>
+          </ul>
+          <div class="actions">
+            <a class="button" href="https://github.com/auruminternum/workflow-audit-service/issues/new?template=lead-research-request.yml">Start order intake</a>
+            <a class="button secondary" href="lead-research.html">Back to offer</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Public GitHub profile: <a href="https://github.com/auruminternum">auruminternum</a>. Payment links are added per engagement after scope confirmation.
+  </footer>
+</body>
+</html>

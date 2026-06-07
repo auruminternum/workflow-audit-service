@@ -2,6 +2,8 @@
 
 Public offer: https://auruminternum.github.io/workflow-audit-service/lead-research.html
 
+Order page: https://auruminternum.github.io/workflow-audit-service/lead-research-order.html
+
 Use these replies after a prospect responds to the lead research offer. Keep all outreach manual, honest, and scoped.
 
 ## Fast Qualification
