@@ -38,6 +38,7 @@ The report builder in this repository is an internal delivery tool used to produ
 - `roi-calculator.html`: prospect-facing calculator for estimating monthly waste, recoverable value, and the suggested first paid step.
 - `lead-research.html`: public-source lead research sprint offer for founders and agencies.
 - `lead_research_rate_card.md`: package details, buyer fit, delivery columns, intake needs, and terms for lead research sprints.
+- `lead_research_close_kit.md`: reply templates, scope confirmation text, and delivery acceptance criteria for interested leads.
 - `agency_outreach_sample.md`: sample delivery shape for ethical lead research and manual-send outreach drafts.
 - `agencies.html`: agency-specific white-label audit/spec offer page.
 - `portfolio.html`: prospect-facing proof page with samples, buyer fit, and intake links.

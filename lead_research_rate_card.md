@@ -2,6 +2,8 @@
 
 Public URL: https://auruminternum.github.io/workflow-audit-service/lead-research.html
 
+Close kit: https://auruminternum.github.io/workflow-audit-service/lead_research_close_kit.md
+
 ## Who This Is For
 
 Founders, consultants, and automation agencies that already have a defined offer and need a focused list of prospects worth contacting manually.
@@ -89,3 +91,4 @@ Best for:
 - Delivery timing starts after complete intake is received.
 - No private credentials, API keys, customer records, or regulated personal data should be sent.
 - Output is research support, not a promise of replies, meetings, sales, or platform deliverability.
+- Scope, payment route, and delivery format are confirmed before work starts.
