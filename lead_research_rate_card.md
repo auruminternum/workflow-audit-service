@@ -8,6 +8,8 @@ Close kit: https://auruminternum.github.io/workflow-audit-service/lead_research_
 
 White-label pack detail: https://auruminternum.github.io/workflow-audit-service/white-label-growth-pack.html
 
+White-label sample delivery: https://auruminternum.github.io/workflow-audit-service/white_label_growth_pack_sample.md
+
 ## Who This Is For
 
 Founders, consultants, and automation agencies that already have a defined B2B offer and need a focused list of prospects worth contacting manually.
