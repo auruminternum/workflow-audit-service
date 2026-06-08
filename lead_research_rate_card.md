@@ -28,7 +28,7 @@ Not a fit:
 
 The low-ticket option exists only as a paid proof-of-work. The core offer is the higher-ticket pipeline build, because the work is most valuable when it supports a real sales process rather than a one-off list.
 
-### Starter Proof - $149
+### Paid Proof - $250
 
 Delivery:
 - 25 prospects.
@@ -39,7 +39,7 @@ Delivery:
 - CSV or Markdown delivery.
 
 Best for:
-- Testing one niche.
+- Testing one niche with enough commitment to justify manual review.
 - Validating whether a buyer profile exists.
 - Creating a first manual outreach batch.
 

@@ -36,11 +36,11 @@ Offer angle:
 
 ## Paid Sprint Extension
 
-Starter proof scope:
+Paid proof scope:
 - 25 Iowa local service businesses.
 - Segments: roofing, HVAC, plumbing, landscaping, home services.
 - Columns: company, URL, segment, source signal, likely workflow pain, suggested automation angle, manual-send draft.
-- Price: `$149`.
+- Price: `$250`.
 
 Focused pipeline scope:
 - 75 prospects split across 2-3 niches or cities.

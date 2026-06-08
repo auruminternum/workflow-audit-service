@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agency Prospect Pipeline</title>
+  <style>
+    :root {
+      --ink: #15161a;
+      --muted: #5e6572;
+      --line: #d8dde6;
+      --paper: #f7f5ef;
+      --panel: #ffffff;
+      --accent: #0e7c66;
+      --accent-2: #244c9a;
+      --warn: #c83e2d;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.5;
+    }
+    header {
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.84);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(12px);
+    }
+    .wrap {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+    .nav {
+      min-height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .brand {
+      font-weight: 760;
+      font-size: 18px;
+      letter-spacing: 0;
+    }
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 14px;
+    }
+    a {
+      color: var(--ink);
+      font-weight: 680;
+      text-decoration: none;
+    }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      border: 1px solid var(--ink);
+      background: var(--ink);
+      color: #fff;
+      padding: 0 18px;
+      border-radius: 6px;
+    }
+    .button.secondary {
+      background: transparent;
+      color: var(--ink);
+      border-color: var(--line);
+    }
+    .hero {
+      min-height: calc(100vh - 64px);
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      align-items: center;
+      gap: 52px;
+      padding: 58px 0 42px;
+    }
+    h1 {
+      font-size: clamp(42px, 6vw, 74px);
+      line-height: 0.98;
+      margin: 0 0 24px;
+      letter-spacing: 0;
+      max-width: 850px;
+    }
+    h2 {
+      font-size: 34px;
+      line-height: 1.08;
+      letter-spacing: 0;
+      margin: 0 0 18px;
+    }
+    h3 {
+      font-size: 18px;
+      margin: 0 0 8px;
+      letter-spacing: 0;
+    }
+    p { margin: 0 0 12px; }
+    .lead {
+      color: var(--muted);
+      font-size: 20px;
+      max-width: 720px;
+      margin: 0 0 28px;
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 28px 0 20px;
+    }
+    .proof {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .proof span {
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.68);
+      padding: 8px 10px;
+      border-radius: 999px;
+    }
+    .panel, .card {
+      background: rgba(255, 255, 255, 0.76);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+    .panel {
+      padding: 22px;
+      box-shadow: 0 18px 40px rgba(21, 22, 26, 0.08);
+    }
+    .metric {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 12px;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(21, 22, 26, 0.1);
+    }
+    .metric:last-child { border-bottom: 0; }
+    .badge {
+      min-width: 72px;
+      color: #fff;
+      background: var(--accent);
+      border-radius: 6px;
+      text-align: center;
+      font-weight: 780;
+      padding: 8px 10px;
+    }
+    section {
+      padding: 64px 0;
+      border-top: 1px solid var(--line);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .card {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+    .price {
+      font-size: 42px;
+      line-height: 1;
+      font-weight: 780;
+      letter-spacing: 0;
+      margin: 10px 0 14px;
+    }
+    .tag {
+      color: var(--accent-2);
+      font-weight: 760;
+      margin-bottom: 8px;
+    }
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    li {
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(21, 22, 26, 0.1);
+    }
+    .split {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 40px;
+      align-items: start;
+    }
+    .muted { color: var(--muted); }
+    .warning {
+      border-left: 5px solid var(--warn);
+    }
+    footer {
+      padding: 34px 0 48px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    @media (max-width: 880px) {
+      .nav { align-items: flex-start; padding: 14px 0; }
+      nav { display: none; }
+      .hero, .grid, .split {
+        grid-template-columns: 1fr;
+      }
+      .hero { min-height: auto; padding-top: 44px; }
+      h1 { font-size: 44px; }
+      .lead { font-size: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <div class="brand">Agency Prospect Pipeline</div>
+      <nav aria-label="Primary">
+        <a href="lead-research.html">Lead research</a>
+        <a href="white-label-growth-pack.html">White-label pack</a>
+        <a href="lead_research_rate_card.md">Rate card</a>
+        <a href="lead-research-order.html">Order</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="wrap hero">
+      <div>
+        <p class="tag">For AI automation, RevOps, and workflow agencies</p>
+        <h1>A sales-ready prospect pipeline without scraped contact dumps.</h1>
+        <p class="lead">I research public-source accounts that match one agency offer, then package them with source links, fit signals, workflow-pain hypotheses, CRM import fields, and short manual-send outreach drafts.</p>
+        <div class="actions">
+          <a class="button" href="https://github.com/auruminternum/workflow-audit-service/issues/new?template=lead-research-request.yml">Request scoped pipeline</a>
+          <a class="button secondary" href="insightful_agents_revops_sample.md">View RevOps sample</a>
+          <a class="button secondary" href="white_label_growth_pack_sample.md">View white-label sample</a>
+        </div>
+        <div class="proof">
+          <span>Public sources only</span>
+          <span>No bulk sending</span>
+          <span>No private scraping</span>
+          <span>Manual-send ready</span>
+        </div>
+      </div>
+      <div class="panel" aria-label="Pipeline summary">
+        <div class="metric">
+          <div class="badge">$250</div>
+          <div>
+            <strong>Paid proof</strong>
+            <p class="muted">25 prospects to test one buyer segment before committing to a larger list.</p>
+          </div>
+        </div>
+        <div class="metric">
+          <div class="badge">$750</div>
+          <div>
+            <strong>Focused pipeline</strong>
+            <p class="muted">75 prospects with fit signals, workflow-pain notes, priority, and first-touch drafts.</p>
+          </div>
+        </div>
+        <div class="metric">
+          <div class="badge">$2.5k</div>
+          <div>
+            <strong>White-label growth pack</strong>
+            <p class="muted">250 prospects, 3-5 segments, CRM-ready structure, and client-facing research summary.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap grid">
+        <article class="card">
+          <p class="tag">Low-friction test</p>
+          <h2>Paid proof</h2>
+          <div class="price">$250</div>
+          <ul>
+            <li>25 public-source prospects.</li>
+            <li>One narrowly defined buyer segment.</li>
+            <li>Source URL, fit signal, pain hypothesis, and priority.</li>
+            <li>5 manual-send first-touch drafts.</li>
+          </ul>
+          <div class="actions">
+            <a class="button secondary" href="lead-research-order.html">Scope proof</a>
+          </div>
+        </article>
+        <article class="card">
+          <p class="tag">Main offer</p>
+          <h2>Focused pipeline</h2>
+          <div class="price">$750</div>
+          <ul>
+            <li>75 prospects for one agency offer.</li>
+            <li>Research fields ready for spreadsheet or CRM import.</li>
+            <li>Workflow-pain notes tied to visible public signals.</li>
+            <li>Short first-touch draft for each prospect cluster.</li>
+          </ul>
+          <div class="actions">
+            <a class="button" href="https://github.com/auruminternum/workflow-audit-service/issues/new?template=lead-research-request.yml">Request pipeline</a>
+          </div>
+        </article>
+        <article class="card">
+          <p class="tag">Agency resale</p>
+          <h2>White-label pack</h2>
+          <div class="price">$2,500</div>
+          <ul>
+            <li>250 prospects across 3-5 buyer segments.</li>
+            <li>Segment strategy and manual-send sequence.</li>
+            <li>CRM import columns and priority scoring.</li>
+            <li>Client-facing research summary for sales calls.</li>
+          </ul>
+          <div class="actions">
+            <a class="button secondary" href="white-label-growth-pack.html">View white-label offer</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap split">
+        <div>
+          <h2>Best-fit buyers.</h2>
+          <p class="lead">This is built for agencies that already sell workflow automation, RevOps cleanup, AI agents, CRM automation, lead qualification, or operational systems.</p>
+        </div>
+        <div class="panel">
+          <ul>
+            <li>n8n, Zapier, Make, or custom workflow automation agencies.</li>
+            <li>HubSpot, Salesforce, GoHighLevel, or RevOps implementation teams.</li>
+            <li>AI automation agencies selling lead routing, intake, qualification, or reporting systems.</li>
+            <li>White-label agencies that need researched prospects for one client campaign.</li>
+            <li>Founders who want a manual-send pipeline, not a generic contact database.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap grid">
+        <article class="card">
+          <h3>Research boundary</h3>
+          <p class="muted">Public company websites, public directories, public integration pages, public job/case-study signals, and visible workflow clues only.</p>
+        </article>
+        <article class="card">
+          <h3>What is excluded</h3>
+          <p class="muted">No login walls, no private data, no scraped inboxes, no purchased contact dumps, no automated sending, and no fake sender identity.</p>
+        </article>
+        <article class="card warning">
+          <h3>Checkout flow</h3>
+          <p class="muted">Scope is confirmed first. Payment link or invoice is issued after the buyer chooses proof, focused pipeline, or white-label pack.</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2>Start with one offer and one buyer segment.</h2>
+        <p class="lead">The fastest useful scope is one agency offer, one buyer segment, and one clear pain pattern such as CRM cleanup, lead routing, reporting automation, or tool-bloat remediation.</p>
+        <div class="actions">
+          <a class="button" href="https://github.com/auruminternum/workflow-audit-service/issues/new?template=lead-research-request.yml">Open intake</a>
+          <a class="button secondary" href="lead_research_rate_card.md">Read rate card</a>
+          <a class="button secondary" href="lead_research_close_kit.md">Close kit</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    Ethical manual-send pipeline research for automation and RevOps agencies.
+  </footer>
+</body>
+</html>

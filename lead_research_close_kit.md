@@ -15,13 +15,13 @@ Ask these before accepting payment:
 3. What geography or language should I target?
 4. Which industries should I avoid?
 5. Do you prefer CSV or Markdown?
-6. Which package do you want: `$149`, `$750`, `$1,500`, or `$2,500`?
+6. Which package do you want: `$250`, `$750`, `$1,500`, or `$2,500`?
 
 ## Reply: "How much does it cost?"
 
 Short answer:
 
-> The starter proof is `$149` for 25 public-source prospects. The focused pipeline is `$750` for 75 prospects with source links, fit notes, priority ranking, and personalized first-touch drafts. The sales sprint pack is `$1,500` for 150 prospects with a three-message manual sequence and CRM import sheet. The white-label growth pack is `$2,500` for 250 prospects, segment strategy, and agency resale notes. Work starts after scope and payment confirmation.
+> The paid proof is `$250` for 25 public-source prospects. The focused pipeline is `$750` for 75 prospects with source links, fit notes, priority ranking, and personalized first-touch drafts. The sales sprint pack is `$1,500` for 150 prospects with a three-message manual sequence and CRM import sheet. The white-label growth pack is `$2,500` for 250 prospects, segment strategy, and agency resale notes. Work starts after scope and payment confirmation.
 
 Longer answer:
 
