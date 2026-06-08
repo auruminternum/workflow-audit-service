@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>White-Label Growth Pack</title>
+  <style>
+    :root {
+      --ink: #15161a;
+      --muted: #5e6472;
+      --paper: #f8f7f2;
+      --line: #ded9cc;
+      --accent: #0f766e;
+      --accent-2: #9f5f00;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.55;
+    }
+    header {
+      border-bottom: 1px solid var(--line);
+      background: rgba(248, 247, 242, 0.94);
+      position: sticky;
+      top: 0;
+    }
+    .wrap {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+    .nav {
+      min-height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    a { color: inherit; }
+    nav {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      font-size: 14px;
+    }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 {
+      font-size: clamp(40px, 7vw, 76px);
+      line-height: 0.98;
+      max-width: 900px;
+      margin-bottom: 24px;
+    }
+    h2 {
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.05;
+      margin-bottom: 16px;
+    }
+    .lead {
+      font-size: clamp(18px, 2.1vw, 24px);
+      color: var(--muted);
+      max-width: 780px;
+    }
+    .hero { padding: 76px 0 54px; }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 26px;
+    }
+    .button {
+      display: inline-flex;
+      min-height: 44px;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--ink);
+      background: var(--ink);
+      color: white;
+      padding: 0 18px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .button.secondary {
+      background: transparent;
+      color: var(--ink);
+      border-color: var(--line);
+    }
+    section {
+      padding: 58px 0;
+      border-top: 1px solid var(--line);
+    }
+    .split {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: 36px;
+      align-items: start;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .card, .panel {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.72);
+      padding: 20px;
+    }
+    .price {
+      font-size: clamp(34px, 6vw, 64px);
+      line-height: 0.98;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+    .muted { color: var(--muted); }
+    ul { padding-left: 20px; margin: 0; }
+    li { margin: 9px 0; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid var(--line);
+    }
+    th, td {
+      text-align: left;
+      padding: 13px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+    th { width: 28%; }
+    .callout {
+      border-left: 5px solid var(--accent);
+    }
+    footer {
+      padding: 34px 0 48px;
+      color: var(--muted);
+    }
+    @media (max-width: 760px) {
+      .split, .grid { grid-template-columns: 1fr; }
+      .nav { align-items: flex-start; flex-direction: column; padding: 14px 0; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <strong>White-Label Growth Pack</strong>
+      <nav>
+        <a href="lead-research.html">Lead research</a>
+        <a href="lead_research_rate_card.md">Rate card</a>
+        <a href="lead-research-order.html">Order</a>
+        <a href="baraco_b2b_ops_sample.md">B2B sample</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <p class="muted"><strong>$2,500 white-label research asset for agencies</strong></p>
+        <h1>A sales pipeline your agency can use or resell.</h1>
+        <p class="lead">A 250-prospect, public-source research pack built around one agency offer, with segment strategy, manual-send sequences, CRM import format, and white-label notes for client-facing sales calls.</p>
+        <div class="actions">
+          <a class="button" href="https://github.com/auruminternum/workflow-audit-service/issues/new?template=lead-research-request.yml">Request scope</a>
+          <a class="button secondary" href="lead_research_rate_card.md">Read rate card</a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap split">
+        <div>
+          <h2>What the buyer gets.</h2>
+          <p class="muted">This is not a scraped list. It is a reviewable sales asset for agencies selling workflow audits, CRM cleanup, n8n/Zapier implementation, AI automation, or operations consulting.</p>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <h3>250 researched prospects</h3>
+            <p class="muted">Each row includes public source URL, segment, fit signal, visible pain, suggested angle, draft message, and priority.</p>
+          </article>
+          <article class="card">
+            <h3>3-5 buyer segments</h3>
+            <p class="muted">Segment strategy helps the agency test multiple angles without mixing unrelated buyers in one generic list.</p>
+          </article>
+          <article class="card">
+            <h3>Manual-send sequence</h3>
+            <p class="muted">First touch plus follow-up directions by segment. The buyer reviews and sends through approved channels.</p>
+          </article>
+          <article class="card">
+            <h3>White-label summary</h3>
+            <p class="muted">A client-facing research summary the agency can use in sales calls or package into an audit offer.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap split">
+        <div>
+          <h2>Why this can justify the ticket.</h2>
+          <p class="muted">The offer works when the agency sells implementation projects where one closed deal covers the research cost.</p>
+        </div>
+        <div class="panel callout">
+          <table>
+            <tr>
+              <th>Agency project value</th>
+              <td>$2,500 to $10,000+ for automation audits, implementation retainers, CRM cleanup, or lead response systems.</td>
+            </tr>
+            <tr>
+              <th>Break-even</th>
+              <td>One closed $2,500 project covers the pack. A $5,000 implementation creates room for margin and reuse.</td>
+            </tr>
+            <tr>
+              <th>Reusable value</th>
+              <td>The segment strategy and message angles can be used again for future lists, sales calls, and audit positioning.</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap split">
+        <div>
+          <h2>Boundaries.</h2>
+          <p class="muted">The pack is intentionally ethical and manual-review friendly.</p>
+        </div>
+        <div class="card">
+          <ul>
+            <li>Public-source research only.</li>
+            <li>No private personal contact dumps.</li>
+            <li>No CAPTCHA bypass, fake identities, or account evasion.</li>
+            <li>No automated sending or deliverability guarantees.</li>
+            <li>No promise of replies, meetings, or sales.</li>
+            <li>Work starts after complete intake and payment confirmation.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap split">
+        <div>
+          <h2>How to scope it.</h2>
+          <p class="muted">The best results come from one clear service offer and a buyer profile narrow enough to research carefully.</p>
+        </div>
+        <div class="card">
+          <ul>
+            <li>Define the agency offer being sold.</li>
+            <li>Pick 3-5 buyer segments or geographies.</li>
+            <li>Name disallowed industries and sources.</li>
+            <li>Choose CSV, Markdown, or both.</li>
+            <li>Confirm whether the output is internal-use or white-label/resale.</li>
+          </ul>
+          <div class="actions">
+            <a class="button" href="https://github.com/auruminternum/workflow-audit-service/issues/new?template=lead-research-request.yml">Open intake</a>
+            <a class="button secondary" href="lead-research.html">Back to lead research</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">Public GitHub profile: <a href="https://github.com/auruminternum">auruminternum</a>.</div>
+  </footer>
+</body>
+</html>

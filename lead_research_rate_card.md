@@ -6,6 +6,8 @@ Order page: https://auruminternum.github.io/workflow-audit-service/lead-research
 
 Close kit: https://auruminternum.github.io/workflow-audit-service/lead_research_close_kit.md
 
+White-label pack detail: https://auruminternum.github.io/workflow-audit-service/white-label-growth-pack.html
+
 ## Who This Is For
 
 Founders, consultants, and automation agencies that already have a defined B2B offer and need a focused list of prospects worth contacting manually.
@@ -118,4 +120,3 @@ Best for:
 - No private credentials, API keys, customer records, or regulated personal data should be sent.
 - Output is research support, not a promise of replies, meetings, sales, or platform deliverability.
 - Scope, payment route, and delivery format are confirmed before work starts.
-
