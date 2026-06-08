@@ -6,7 +6,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Use this intake for a paid lead research sprint. Do not include passwords, API keys, private customer records, or regulated personal data.
+        Use this intake for a paid lead research sprint. After scope confirmation, request an invoice or payment link for the agreed package. Do not include passwords, API keys, private customer records, or regulated personal data.
   - type: input
     id: contact
     attributes:
