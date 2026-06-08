@@ -34,14 +34,13 @@ Offer angle:
 
 ## Paid Sprint Extension
 
-Starter list scope:
+Starter proof scope:
 - 25 B2B service companies.
 - Segments: managed IT, cybersecurity, staffing/BPO, HubSpot/CRM agencies, operations-heavy professional services.
 - Columns: company, URL, segment, source signal, likely workflow pain, suggested automation angle, manual-send draft.
-- Price: `$99`.
+- Price: `$149`.
 
-Focused sprint scope:
-- 50 prospects split across 2-3 verticals or regions.
-- Adds prioritization, buying trigger notes, and alternate message angles.
-- Price: `$199`.
-
+Focused pipeline scope:
+- 75 prospects split across 2-3 verticals or regions.
+- Adds prioritization, buying trigger notes, first-touch drafts, and alternate message angles.
+- Price: `$750`.

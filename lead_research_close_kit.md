@@ -15,17 +15,17 @@ Ask these before accepting payment:
 3. What geography or language should I target?
 4. Which industries should I avoid?
 5. Do you prefer CSV or Markdown?
-6. Which package do you want: `$99`, `$199`, or `$349`?
+6. Which package do you want: `$149`, `$750`, `$1,500`, or `$2,500`?
 
 ## Reply: "How much does it cost?"
 
 Short answer:
 
-> The starter list is `$99` for 25 public-source prospects. The focused sprint is `$199` for 50 prospects with source links, fit notes, and personalized first-touch drafts. The pipeline pack is `$349` for 100 prospects segmented by offer angle. Work starts after scope and payment confirmation.
+> The starter proof is `$149` for 25 public-source prospects. The focused pipeline is `$750` for 75 prospects with source links, fit notes, priority ranking, and personalized first-touch drafts. The sales sprint pack is `$1,500` for 150 prospects with a three-message manual sequence and CRM import sheet. The white-label growth pack is `$2,500` for 250 prospects, segment strategy, and agency resale notes. Work starts after scope and payment confirmation.
 
 Longer answer:
 
-> For a first test I recommend the `$199` focused sprint: 50 prospects, source links, fit notes, visible pain signals, and one manual-send first-touch draft per prospect. It is enough volume to see whether a niche has good outreach potential without buying a generic scraped list.
+> For a first serious test I recommend the `$750` focused pipeline: 75 prospects, source links, fit notes, visible pain signals, priority ranking, and one manual-send first-touch draft per prospect. It is enough volume to test a niche properly without jumping straight into the larger sales sprint.
 
 ## Reply: "What do you need from us?"
 

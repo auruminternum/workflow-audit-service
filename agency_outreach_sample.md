@@ -1,6 +1,6 @@
 # Ethical Lead Research Sample
 
-This sample shows the delivery shape for a public-source lead research sprint. It is intentionally short; paid work expands the same format to 25, 50, or 100 prospects.
+This sample shows the delivery shape for a public-source lead research sprint. It is intentionally short; paid work expands the same format to 25, 75, 150, or 250 prospects depending on package scope.
 
 ## Scope
 

@@ -20,9 +20,10 @@ body:
     attributes:
       label: Package
       options:
-        - Starter list - 25 prospects - $99
-        - Focused sprint - 50 prospects - $199
-        - Pipeline pack - 100 prospects - $349
+        - Starter proof - 25 prospects - $149
+        - Focused pipeline - 75 prospects - $750
+        - Sales sprint pack - 150 prospects - $1,500
+        - White-label growth pack - 250 prospects - $2,500
         - Not sure yet
     validations:
       required: true
