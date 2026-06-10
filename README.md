@@ -22,6 +22,9 @@ The report builder in this repository is an internal delivery tool used to produ
 - Agency prospect pipeline proof: $250
 - Ethical lead research focused pipeline: $750
 - White-label growth pack: $2,500
+- AI Automation Client Audit Kit: $79
+- Client Audit Kit agency license: $299
+- Client Audit Kit setup sprint: $799
 
 ## Request Work
 
@@ -31,6 +34,7 @@ The report builder in this repository is an internal delivery tool used to produ
 - Workflow ROI calculator: https://auruminternum.github.io/workflow-audit-service/roi-calculator.html
 - Ethical lead research sprint: https://auruminternum.github.io/workflow-audit-service/lead-research.html
 - Agency prospect pipeline: https://auruminternum.github.io/workflow-audit-service/agency-prospect-pipeline.html
+- AI Automation Client Audit Kit: https://auruminternum.github.io/workflow-audit-service/client_audit_kit.html
 - Lead research order page: https://auruminternum.github.io/workflow-audit-service/lead-research-order.html
 - Agency white-label page: https://auruminternum.github.io/workflow-audit-service/agencies.html
 - Portfolio page: https://auruminternum.github.io/workflow-audit-service/portfolio.html
@@ -42,6 +46,12 @@ The report builder in this repository is an internal delivery tool used to produ
 - `roi-calculator.html`: prospect-facing calculator for estimating monthly waste, recoverable value, and the suggested first paid step.
 - `lead-research.html`: public-source lead research sprint offer for founders and agencies.
 - `agency-prospect-pipeline.html`: compact agency-facing sales page for proof, focused pipeline, and white-label pipeline offers.
+- `client_audit_kit.html`: digital product page for selling the workflow audit kit to freelancers and agencies.
+- `client_audit_kit_bundle.md`: bundle overview and pricing for the audit kit.
+- `client_audit_kit_discovery_script.md`: discovery-call script for client audit work.
+- `client_audit_kit_report_template.md`: reusable workflow audit report template.
+- `client_audit_kit_sales_scripts.md`: messages and call scripts for selling audits.
+- `client_audit_kit_delivery_checklist.md`: QA and delivery checklist for audit handoff.
 - `lead-research-order.html`: order-flow page for selecting a package and opening scoped intake.
 - `lead_research_rate_card.md`: package details, buyer fit, delivery columns, intake needs, and terms for lead research sprints.
 - `lead_research_close_kit.md`: reply templates, scope confirmation text, and delivery acceptance criteria for interested leads.
