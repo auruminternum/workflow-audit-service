@@ -61,6 +61,7 @@ Setup Sprint: `$799`
 - `client_audit_kit_report_template.md`
 - `client_audit_kit_sales_scripts.md`
 - `client_audit_kit_delivery_checklist.md`
+- `client_audit_kit_license.md`
 - Link to `workflow_audit_report_builder.html`
 - Link to `sample-audit.md`
 

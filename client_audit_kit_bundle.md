@@ -43,3 +43,9 @@ The buyer can package and sell:
 ## Boundaries
 
 This kit does not include automated outreach, private scraping, inbox management, or client credential handling. The buyer reviews and sends their own messages through approved channels.
+
+## License
+
+Public preview access does not grant commercial client-use rights. Commercial use requires the agency license.
+
+License terms: https://auruminternum.github.io/workflow-audit-service/client_audit_kit_license.md
