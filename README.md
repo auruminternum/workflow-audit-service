@@ -35,6 +35,7 @@ The report builder in this repository is an internal delivery tool used to produ
 - Ethical lead research sprint: https://auruminternum.github.io/workflow-audit-service/lead-research.html
 - Agency prospect pipeline: https://auruminternum.github.io/workflow-audit-service/agency-prospect-pipeline.html
 - AI Automation Client Audit Kit: https://auruminternum.github.io/workflow-audit-service/client_audit_kit.html
+- Client Audit Kit launch pack: https://auruminternum.github.io/workflow-audit-service/client_audit_kit_launch_pack.html
 - Lead research order page: https://auruminternum.github.io/workflow-audit-service/lead-research-order.html
 - Agency white-label page: https://auruminternum.github.io/workflow-audit-service/agencies.html
 - Portfolio page: https://auruminternum.github.io/workflow-audit-service/portfolio.html
@@ -47,6 +48,8 @@ The report builder in this repository is an internal delivery tool used to produ
 - `lead-research.html`: public-source lead research sprint offer for founders and agencies.
 - `agency-prospect-pipeline.html`: compact agency-facing sales page for proof, focused pipeline, and white-label pipeline offers.
 - `client_audit_kit.html`: digital product page for selling the workflow audit kit to freelancers and agencies.
+- `client_audit_kit_launch_pack.html`: public launch and distribution page for selling the client audit kit.
+- `client_audit_kit_launch_pack.md`: reusable marketplace listing, launch posts, outreach scripts, and fulfillment replies.
 - `client_audit_kit_bundle.md`: bundle overview and pricing for the audit kit.
 - `client_audit_kit_discovery_script.md`: discovery-call script for client audit work.
 - `client_audit_kit_report_template.md`: reusable workflow audit report template.

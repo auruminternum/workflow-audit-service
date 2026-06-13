@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Client Audit Kit Launch Pack</title>
+  <style>
+    :root {
+      --ink: #15161a;
+      --muted: #5e6572;
+      --line: #d8dde6;
+      --paper: #f7f5ef;
+      --panel: #ffffff;
+      --accent: #0e7c66;
+      --blue: #244c9a;
+      --warn: #c83e2d;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.5;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.86);
+      backdrop-filter: blur(12px);
+    }
+    .wrap {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+    .nav {
+      min-height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .brand {
+      font-size: 18px;
+      font-weight: 780;
+      letter-spacing: 0;
+    }
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 14px;
+    }
+    a {
+      color: var(--ink);
+      font-weight: 680;
+      text-decoration: none;
+    }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 18px;
+      border: 1px solid var(--ink);
+      border-radius: 6px;
+      background: var(--ink);
+      color: white;
+      font-weight: 760;
+    }
+    .button.secondary {
+      color: var(--ink);
+      background: transparent;
+      border-color: var(--line);
+    }
+    .hero {
+      min-height: calc(100vh - 64px);
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      align-items: center;
+      gap: 52px;
+      padding: 58px 0 42px;
+    }
+    h1 {
+      max-width: 900px;
+      margin: 0 0 24px;
+      font-size: clamp(42px, 6vw, 74px);
+      line-height: 0.98;
+      letter-spacing: 0;
+    }
+    h2 {
+      margin: 0 0 18px;
+      font-size: 34px;
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+    h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+      letter-spacing: 0;
+    }
+    p { margin: 0 0 12px; }
+    .lead {
+      max-width: 720px;
+      margin: 0 0 28px;
+      color: var(--muted);
+      font-size: 20px;
+    }
+    .tag {
+      margin-bottom: 8px;
+      color: var(--blue);
+      font-weight: 780;
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 28px 0 20px;
+    }
+    .proof {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .proof span {
+      padding: 8px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.68);
+    }
+    .panel, .card, .script {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.76);
+    }
+    .panel {
+      padding: 22px;
+      box-shadow: 0 18px 40px rgba(21, 22, 26, 0.08);
+    }
+    .price {
+      margin: 10px 0 14px;
+      font-size: 42px;
+      line-height: 1;
+      font-weight: 780;
+      letter-spacing: 0;
+    }
+    section {
+      padding: 64px 0;
+      border-top: 1px solid var(--line);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .card {
+      min-height: 100%;
+      padding: 20px;
+    }
+    .split {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 40px;
+      align-items: start;
+    }
+    .script {
+      padding: 18px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+      font-size: 14px;
+      white-space: pre-wrap;
+      color: #2d3037;
+    }
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    li {
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(21, 22, 26, 0.1);
+    }
+    .muted { color: var(--muted); }
+    .warning { border-left: 5px solid var(--warn); }
+    footer {
+      padding: 34px 0 48px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    @media (max-width: 880px) {
+      .nav { align-items: flex-start; padding: 14px 0; }
+      nav { display: none; }
+      .hero, .grid, .split {
+        grid-template-columns: 1fr;
+      }
+      .hero { min-height: auto; padding-top: 44px; }
+      h1 { font-size: 44px; }
+      .lead { font-size: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <div class="brand">Client Audit Kit Launch Pack</div>
+      <nav>
+        <a href="client_audit_kit.html">Product</a>
+        <a href="client_audit_kit_bundle.md">Files</a>
+        <a href="client_audit_kit_launch_pack.md">Copy</a>
+        <a href="index.html">Audit service</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div>
+        <div class="tag">Distribution page for the AI Automation Client Audit Kit</div>
+        <h1>Launch copy that sells a paid workflow audit product.</h1>
+        <p class="lead">Use this page to list, share, or pitch the kit to automation freelancers, no-code builders, RevOps consultants, and small agencies that need a paid diagnostic offer before implementation work.</p>
+        <div class="actions">
+          <a class="button" href="https://github.com/auruminternum/workflow-audit-service/issues/new?template=client-audit-kit-purchase.yml">Buy license or setup</a>
+          <a class="button secondary" href="client_audit_kit.html">Product page</a>
+          <a class="button secondary" href="client_audit_kit_launch_pack.md">Markdown copy</a>
+        </div>
+        <div class="proof">
+          <span>$79 template kit</span>
+          <span>$299 agency license</span>
+          <span>$799 setup sprint</span>
+          <span>Manual outreach only</span>
+        </div>
+      </div>
+      <aside class="panel">
+        <h2>Buyer fit</h2>
+        <ul>
+          <li>Freelancers selling Zapier, Make, n8n, Airtable, CRM, RevOps, or AI workflow services.</li>
+          <li>Agencies that need a first-pass diagnostic before larger automation builds.</li>
+          <li>Consultants who want a repeatable audit/spec deliverable.</li>
+          <li>Not for buyers expecting guaranteed leads or resale rights to the raw templates.</li>
+        </ul>
+      </aside>
+    </section>
+
+    <section>
+      <h2>Marketplace-ready listing</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Title</h3>
+          <p>AI Automation Client Audit Kit for Freelancers and Agencies</p>
+        </article>
+        <article class="card">
+          <h3>Subtitle</h3>
+          <p>Package and sell workflow audits, implementation specs, and automation sprint proposals without starting from a blank doc.</p>
+        </article>
+        <article class="card">
+          <h3>Tags</h3>
+          <p>AI automation, no-code, Zapier, Make, n8n, RevOps, client audit, operations consulting.</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="split">
+        <div>
+          <h2>Pricing ladder</h2>
+          <p class="muted">A clear low-friction entry point plus higher-value options for agencies and done-with-you setup.</p>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <h3>Template Kit</h3>
+            <div class="price">$79</div>
+            <p>Templates, scripts, checklist, sample, and report builder for internal use.</p>
+          </article>
+          <article class="card">
+            <h3>Agency License</h3>
+            <div class="price">$299</div>
+            <p>Use the kit in client projects with white-label delivery language.</p>
+          </article>
+          <article class="card">
+            <h3>Setup Sprint</h3>
+            <div class="price">$799</div>
+            <p>Customize the kit to one niche, one offer, one sample audit, and one outreach draft.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Launch posts</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Product Hunt</h3>
+          <p>I built the AI Automation Client Audit Kit for freelancers and small agencies who want to sell a paid diagnostic before proposing a larger automation build.</p>
+          <p>It includes the discovery script, audit report template, follow-up proposal copy, delivery checklist, sample audit, and browser-based report builder.</p>
+        </article>
+        <article class="card">
+          <h3>Indie Hackers</h3>
+          <p>I packaged the workflow audit process into a small digital product for automation freelancers.</p>
+          <p>Positioning: before selling a build, sell a paid workflow diagnosis.</p>
+        </article>
+        <article class="card">
+          <h3>Show HN</h3>
+          <p>Show HN: AI Automation Client Audit Kit for freelancers.</p>
+          <p>A compact kit for turning an early prospect call into a paid workflow audit before proposing implementation.</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="split">
+        <div>
+          <h2>Manual outreach script</h2>
+          <p class="muted">Use only where direct contact is permitted and the prospect is visibly relevant. Do not automate or bulk spam.</p>
+        </div>
+        <div class="script">Subject: Workflow audit kit for automation client calls
+
+Hi {{name}},
+
+I saw that you work around {{automation/no-code/RevOps/agency work}}.
+
+I built a practical AI Automation Client Audit Kit for freelancers and small agencies that want to sell paid workflow diagnostics before proposing implementation.
+
+It includes a discovery script, audit report template, follow-up copy, delivery checklist, sample audit, and report builder.
+
+Page: https://auruminternum.github.io/workflow-audit-service/client_audit_kit.html
+
+Would this help you package a paid audit offer for your clients?</div>
+      </div>
+    </section>
+
+    <section>
+      <div class="panel warning">
+        <h2>Fulfillment boundary</h2>
+        <p>Payment links are sent after package selection and scope confirmation. The kit is delivered after payment confirmation. Setup Sprint customization begins only after the target niche, current offer, preferred audit price, and sample workflow are provided.</p>
+        <div class="actions">
+          <a class="button" href="https://github.com/auruminternum/workflow-audit-service/issues/new?template=client-audit-kit-purchase.yml">Open purchase request</a>
+          <a class="button secondary" href="client_audit_kit_license.md">License terms</a>
+          <a class="button secondary" href="client_audit_kit_marketplace_listing.md">Marketplace listing</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    Public distribution copy for the AI Automation Client Audit Kit. Commercial client use requires the agency license.
+  </footer>
+</body>
+</html>
