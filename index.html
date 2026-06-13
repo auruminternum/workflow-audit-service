@@ -31,8 +31,12 @@
       z-index: 10;
       backdrop-filter: blur(12px);
     }
-    .nav, main, footer {
+    main, footer {
       width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+    .nav {
+      width: min(1240px, calc(100% - 32px));
       margin: 0 auto;
     }
     .nav {
@@ -40,12 +44,13 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
+      gap: 20px;
     }
     .brand {
       font-weight: 760;
       font-size: 18px;
       letter-spacing: 0;
+      white-space: nowrap;
     }
     .nav a, .button {
       color: var(--ink);
@@ -55,8 +60,25 @@
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 18px;
-      font-size: 14px;
+      justify-content: flex-end;
+      gap: 6px;
+      min-width: 0;
+      flex: 1;
+      overflow-x: auto;
+      font-size: 13px;
+      scrollbar-width: none;
+    }
+    .nav-links::-webkit-scrollbar { display: none; }
+    .nav-links a {
+      white-space: nowrap;
+      color: var(--muted);
+      padding: 8px 9px;
+      border-radius: 6px;
+      transition: background-color 0.16s ease, color 0.16s ease;
+    }
+    .nav-links a:hover {
+      color: var(--ink);
+      background: rgba(14, 124, 102, 0.08);
     }
     .button {
       display: inline-flex;
@@ -272,17 +294,17 @@
 <body>
   <header>
     <div class="nav">
-      <div class="brand">AI Workflow Leak Audit</div>
+      <div class="brand">AI Workflow Audit</div>
       <nav class="nav-links" aria-label="Primary">
-        <a href="#deliverables">Deliverables</a>
+        <a href="#deliverables">Work</a>
         <a href="#pricing">Pricing</a>
-        <a href="roi-calculator.html">ROI calculator</a>
-        <a href="lead-research.html">Lead research</a>
-        <a href="agency-prospect-pipeline.html">Agency pipeline</a>
-        <a href="client_audit_kit.html">Client audit kit</a>
-        <a href="client_audit_kit_launch_pack.html">Launch pack</a>
+        <a href="roi-calculator.html">ROI</a>
+        <a href="lead-research.html">Leads</a>
+        <a href="agency-prospect-pipeline.html">Pipeline</a>
+        <a href="client_audit_kit.html">Kit</a>
+        <a href="client_audit_kit_launch_pack.html">Launch</a>
         <a href="portfolio.html">Portfolio</a>
-        <a href="agencies.html">For agencies</a>
+        <a href="agencies.html">Agencies</a>
         <a href="sample-audit.md">Sample</a>
         <a href="#intake">Intake</a>
       </nav>
