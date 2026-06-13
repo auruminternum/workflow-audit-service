@@ -101,4 +101,6 @@ It includes a discovery script, audit report template, follow-up proposal copy, 
 
 Page: https://auruminternum.github.io/workflow-audit-service/client_audit_kit.html
 
+Purchase request: https://github.com/auruminternum/workflow-audit-service/issues/new?template=client-audit-kit-purchase.yml
+
 Would this be useful for packaging your first paid automation diagnostic?

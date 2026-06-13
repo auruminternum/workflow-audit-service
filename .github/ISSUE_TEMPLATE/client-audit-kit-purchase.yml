@@ -1,0 +1,70 @@
+name: Client Audit Kit Purchase
+description: Request a paid Client Audit Kit license, agency license, or setup sprint.
+title: "Client Audit Kit purchase: "
+labels: ["client-audit-kit", "purchase"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form to request a paid Client Audit Kit license or setup sprint. Do not include passwords, API keys, private customer data, regulated personal data, or confidential client records.
+  - type: dropdown
+    id: package
+    attributes:
+      label: Package
+      options:
+        - Template Kit - $79
+        - Agency License - $299
+        - Setup Sprint - $799
+        - Custom quote
+    validations:
+      required: true
+  - type: input
+    id: buyer
+    attributes:
+      label: Buyer name or organization
+      placeholder: "Name, agency, company, or solo practice"
+    validations:
+      required: true
+  - type: input
+    id: reply_email
+    attributes:
+      label: Reply email for invoice/payment link
+      placeholder: "you@example.com"
+    validations:
+      required: true
+  - type: dropdown
+    id: payment_preference
+    attributes:
+      label: Preferred payment route
+      options:
+        - PayPal invoice
+        - Coinbase / USDC
+        - Gumroad
+        - Payhip
+        - Stripe payment link
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: intended_use
+    attributes:
+      label: Intended use
+      placeholder: "Example: use the agency license to sell workflow audits to local service businesses; customize the setup sprint for n8n implementation clients..."
+    validations:
+      required: true
+  - type: textarea
+    id: setup_scope
+    attributes:
+      label: Setup sprint scope, if applicable
+      placeholder: "If choosing Setup Sprint or custom quote, describe your niche, offer, target buyer, and what you want customized."
+    validations:
+      required: false
+  - type: checkboxes
+    id: boundary
+    attributes:
+      label: Safety boundary
+      options:
+        - label: I will not include credentials, secrets, regulated personal data, or confidential client records in this public issue.
+          required: true
+        - label: I understand that commercial client use requires the paid Agency License or Setup Sprint.
+          required: true

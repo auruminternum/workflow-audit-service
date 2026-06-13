@@ -2,6 +2,8 @@
 
 Public offer page: https://auruminternum.github.io/workflow-audit-service/client_audit_kit.html
 
+Purchase request: https://github.com/auruminternum/workflow-audit-service/issues/new?template=client-audit-kit-purchase.yml
+
 This bundle helps an AI automation freelancer or small agency sell a paid workflow diagnostic before proposing a larger build.
 
 ## Product Ladder
